@@ -1,6 +1,6 @@
 [package]
 name = "conman"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Ian Knowles <studio@ianknowles.com>"]
 edition = "2018"
 description = "Concurrency Manager and work item queue in pure safe rust"

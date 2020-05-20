@@ -1,4 +1,4 @@
-#Conman - Concurrency Manager
+# Conman - Concurrency Manager
 
 Conman is a perfomant thread safe, thread and work item management library.
 Simple to use, just instantiate an instance of conman with the number of threads you wish to consume.
