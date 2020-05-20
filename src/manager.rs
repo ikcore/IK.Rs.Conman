@@ -12,6 +12,9 @@ impl ConmanManager {
     pub fn add_item(&mut self, item: Box<dyn ConmanItem + Send>) {
         self.items.push_back(item);
     }
+    pub fn add_item_priority(&mut self, item: Box<dyn ConmanItem + Send>) {
+        self.items.push_front(item);
+    }
     pub fn get_next_item(&mut self) -> Option<Box<dyn ConmanItem + Send>> {
         self.items.pop_front()
     }

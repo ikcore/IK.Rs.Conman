@@ -15,8 +15,17 @@ pub struct Conman {
 }
 impl Conman {
     pub fn add_item (&self, item: Box<dyn ConmanItem + Send>) {
-        let mut mgr = self.manager.lock().unwrap();
-        mgr.add_item(item);
+        {
+            let mut mgr = self.manager.lock().unwrap();
+            mgr.add_item(item);
+        }
+        self.signal_workers(); 
+    }
+    pub fn add_item_priority (&self, item: Box<dyn ConmanItem + Send>) {
+        {
+            let mut mgr = self.manager.lock().unwrap();
+            mgr.add_item_priority(item);
+        }
         self.signal_workers(); 
     }
     fn signal_workers(&self) {

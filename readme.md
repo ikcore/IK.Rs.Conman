@@ -8,7 +8,7 @@ There is no unsafe code used...
 
 ```toml
 [dependencies]
-conman = "0.1.3"
+conman = "0.1.5"
 ```
 
 [Conman Repo](https://github.com/ikcore/IK.Rs.Conman "Conman Repository")
@@ -30,11 +30,17 @@ fn main() {
     // I like to use num_cpus to get the number of logical cores available
     // let mut cman = conman::Conman::new(num_cpus::get());
 
+    // new instance
     let mut cman = conman::Conman::new(8);
 
     for i in 0..100 {
         let item = Box::new(MyItem { id: i });
+
+        // add an item
         cman.add_item(item);
+
+        // add item at front of queue
+        cman.add_item_priority(item);
     }
     std::thread::sleep(Duration::from_millis(80));
     let remaining = cman.stop();
