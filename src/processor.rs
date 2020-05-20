@@ -30,10 +30,10 @@ impl ConmanWorkerProcessor {
             }
             match _item {
                 Some(x) => {
-                    self.is_busy.store(true, Ordering::Relaxed);
+                    self.is_busy.store(true, Ordering::SeqCst);
                     x.execute();
                     processed_item = true;
-                    self.is_busy.store(false, Ordering::Relaxed);
+                    self.is_busy.store(false, Ordering::SeqCst);
                 },
                 None => {}
             }
@@ -41,7 +41,7 @@ impl ConmanWorkerProcessor {
                 let (lock, cvar) = &*self.sync_object;
                 let mut _started = lock.lock().unwrap();
                 'running: loop {
-                    let _result = cvar.wait_timeout(_started, Duration::from_millis(500)).unwrap();
+                    let _result = cvar.wait_timeout(_started, Duration::from_millis(5)).unwrap();
                     break 'running
                 }
             }

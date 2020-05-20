@@ -8,7 +8,7 @@ There is no unsafe code used...
 
 ```toml
 [dependencies]
-conman = "0.1.5"
+conman = "0.1.6"
 ```
 
 [Conman Repo](https://github.com/ikcore/IK.Rs.Conman "Conman Repository")
@@ -40,7 +40,7 @@ fn main() {
         cman.add_item(item);
 
         // add item at front of queue
-        cman.add_item_priority(item);
+        // cman.add_item_priority(item);
     }
     std::thread::sleep(Duration::from_millis(80));
     let remaining = cman.stop();
