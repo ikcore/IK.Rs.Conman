@@ -1,0 +1,9 @@
+[package]
+name = "conman"
+version = "0.1.1"
+authors = ["Ian Knowles <studio@ianknowles.com>"]
+edition = "2018"
+description = "Simple powerful work items and thread process manager"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
