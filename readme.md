@@ -6,9 +6,14 @@ Impliment a ConmanItem trait on your struct and add it as an item. If there is a
 
 There is no unsafe code used...
 
-[link](https://github.com/ikcore/IK.Rs.Conman "Conman Repository")
+```toml
+[dependencies]
+conman = "0.1.3"
+```
 
-```rust,skt-template
+[Conman Repo](https://github.com/ikcore/IK.Rs.Conman "Conman Repository")
+
+```Rust
 pub extern crate conman;
 pub use conman::*;
 
@@ -33,6 +38,6 @@ fn main() {
     }
     std::thread::sleep(Duration::from_millis(80));
     let remaining = cman.stop();
-    println!("Stopped with {} items in queue", remaining);    
+    println!("Stopped with {} items in queue", remaining);
 }
 ```
